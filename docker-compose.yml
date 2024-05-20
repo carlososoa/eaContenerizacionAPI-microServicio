@@ -1,0 +1,15 @@
+version: '3'
+services:
+  microservice:
+    container_name: microservice
+    image: microservice:v1
+    build:
+      context: .
+    ports:
+      - "3001:3001"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
