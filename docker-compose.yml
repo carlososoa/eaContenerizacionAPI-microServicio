@@ -13,3 +13,6 @@ services:
 networks:
   app-network:
     driver: bridge
+
+environment:
+  - MONGODB=${MONGODB}
