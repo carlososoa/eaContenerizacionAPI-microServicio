@@ -24,7 +24,7 @@ pipeline {
                   withCredentials([
                         string(credentialsId: 'MONGODB', variable: 'MONGODB')
                     ]) {
-                        docker.build('proyectos-micro:v1', '--build-arg MONGODB=${MONGODB} .')
+                        docker.build('microservice:v1', '--build-arg MONGODB=${MONGODB} .')
                 }
             }
         }
