@@ -1,17 +1,16 @@
 pipeline {  
-    environment {
-        
-        MONGODB = credentials('MONGODB') 
-    }  
+      
     agent any
+
+        environment {        
+        MONGODB = credentials('MONGODB') 
+        }
+    
     
         stages {
         stage('verificar variable de entorno') {
             steps {
-                script{
-                    echo %MONGODB%
-                }
-                
+                sh 'echo "$MONGODB"'                                
             }
         }    
         stage('Clonar repositorio') {
@@ -41,6 +40,7 @@ pipeline {
             }
         }
     }
+        
 
 }
 }
