@@ -9,10 +9,11 @@ services:
       - "3001:3001"
     networks:
       - app-network
+    environment:
+    - MONGODB=${MONGODB}
 
 networks:
   app-network:
     driver: bridge
 
-environment:
-  - MONGODB=${MONGODB}
+
