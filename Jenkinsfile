@@ -1,7 +1,4 @@
-pipeline {
-    environment {
-        MYSQL_ROOT_PASSWORD = 'tu-contraseña'
-    }
+pipeline {    
     agent any
     
         stages {
@@ -20,6 +17,7 @@ pipeline {
                 }
             }
         }
+        }
         stage('Levantar contenedor') {
             steps {
                 script {
@@ -31,6 +29,7 @@ pipeline {
             }
         }
     }
+
 }
 }
-}
+
