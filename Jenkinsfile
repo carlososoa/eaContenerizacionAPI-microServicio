@@ -6,6 +6,11 @@ pipeline {
     agent any
     
         stages {
+        stage('verificar variable de entorno') {
+            steps {
+                echo %MONGODB%
+            }
+        }    
         stage('Clonar repositorio') {
             steps {
                 git branch: 'main', url:'https://github.com/carlososoa/eaContenerizacionAPI-microServicio'
