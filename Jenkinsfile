@@ -13,9 +13,17 @@ pipeline {
             steps {
                 script {
                     // Clonar los repositorios en carpetas separadas
-                    git branch: 'main', url: 'https://github.com/carlososoa/eaContenerizacionAPI-microServicio', changelog: false, poll: false, dir: 'MicroGestorProyectosIUD'
-                    git branch: 'main', url: 'https://github.com/carlososoa/eaContenerizacionAPI-monolito', changelog: false, poll: false, dir: 'GestorProyectosIUD'
-                    git branch: 'main', url: 'https://github.com/carlososoa/nginx-balanceador', changelog: false, poll: false, dir: 'nginx'
+                    dir('MicroGestorProyectosIUD'){
+                        git branch: 'main', url: 'https://github.com/carlososoa/eaContenerizacionAPI-microServicio'
+
+                    }
+                    dir('GestorProyectosIUD'){
+                        git branch: 'main', url: 'https://github.com/carlososoa/eaContenerizacionAPI-monolito'
+                    }
+                    dir('nginx'){
+                        git branch: 'main', url: 'https://github.com/carlososoa/nginx-balanceador'
+                    }                    
+                    
                 }
                 
             }
@@ -36,7 +44,8 @@ pipeline {
                         sh 'export MONGODB=$MONGODB'
                         
                         // Construir las imágenes y levantar los contenedores usando docker-compose
-                        sh 'docker-compose -f $COMPOSE_FILE up -d --build'
+                        sh 'docker-compose -f $COMPOSE_FILE build --build-arg MONGODB=$MONGODB'
+                        sh 'docker-compose -f $COMPOSE_FILE up -d'
                     }
                 }
             }
