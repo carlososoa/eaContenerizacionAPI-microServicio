@@ -1,4 +1,8 @@
-pipeline {    
+pipeline {  
+    environment {
+        
+        MONGODB = credentials('MONGODB') 
+    }  
     agent any
     
         stages {
