@@ -45,7 +45,7 @@ pipeline {
                         
                         // Construir las imágenes y levantar los contenedores usando docker-compose
                         sh 'docker-compose -f $COMPOSE_FILE build --build-arg MONGODB=$MONGODB'
-                        sh 'docker-compose -f $COMPOSE_FILE up -d'
+                        sh 'MONGODB=$MONGODB docker-compose -f $COMPOSE_FILE up -d'
                     }
                 }
             }
