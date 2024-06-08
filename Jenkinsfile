@@ -8,7 +8,10 @@ pipeline {
         stages {
         stage('verificar variable de entorno') {
             steps {
-                echo %MONGODB%
+                script{
+                    echo %MONGODB%
+                }
+                
             }
         }    
         stage('Clonar repositorio') {
