@@ -58,8 +58,8 @@ post {
             emailext (
                 subject: "Status del build: ${currentBuild.currentResult}",
                 body: "Se ha completado el build. Puede detallar en: ${env.BUILD_URL}",
-                to: "carlos.osorioa@est.iudigital.edu.co",
-                from: "carlososoa@gmail.com"
+                to: "carlososoa@gmail.com",
+                from: "jenkins@est.iudigital.edu.co"
             )
         }
     }
