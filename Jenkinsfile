@@ -29,7 +29,7 @@ pipeline {
                 }
             }
         }
-    }
+    
 
         stage('Eliminar imagenes anteriores'){
             steps{ 
@@ -98,6 +98,7 @@ post {
             )
         }
     }
+}    
 
 
 
