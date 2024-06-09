@@ -36,7 +36,7 @@ pipeline {
                 }
             }
         }
-        stage('Construir y levantar contenedores conn Docker Compose') {
+        stage('Construir y levantar contenedores con Docker Compose') {
             steps {
                 withCredentials([string(credentialsId: 'MONGODB', variable: 'MONGODB')]) {
                     script {
