@@ -11,14 +11,14 @@ pipeline {
         stages {
         stage('Detener y eliminar contenedores anteriores'){
             steps{
-                sh 'docker stop despliegue_node_app_1_1 despliegue_node_app_2_1 despliegue_node_app_2_1 despliegue_proyecto_grande_1 despliegue_nginx_1'
-                sh 'docker rm despliegue_node_app_1_1 despliegue_node_app_2_1 despliegue_node_app_2_1 despliegue_proyecto_grande_1 despliegue_nginx_1'
+                sh 'docker stop despliegue_node_app_1_1 despliegue_node_app_2_1 despliegue_node_app_3_1 despliegue_proyecto_grande_1 despliegue_nginx_1'
+                sh 'docker rm despliegue_node_app_1_1 despliegue_node_app_2_1 despliegue_node_app_3_1 despliegue_proyecto_grande_1 despliegue_nginx_1'
             }
         }
 
         stage('Eliminar imagenes anteriores'){
             steps{                
-                sh 'docker rmi despliegue_node_app_1 despliegue_node_app_2 despliegue_node_app_2 despliegue_proyecto_grande despliegue_nginx'
+                sh 'docker rmi despliegue_node_app_1 despliegue_node_app_2 despliegue_node_app_3 despliegue_proyecto_grande despliegue_nginx'
             }
         }
                       
