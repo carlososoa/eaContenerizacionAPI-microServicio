@@ -91,7 +91,7 @@ pipeline {
 post {
         always {
             emailext (
-                subject: "Status del build: ${currentBuild.currentResult}",
+                subject: "Estado del build: ${currentBuild.currentResult}",
                 body: "Se ha completado el build. Puede detallar en: ${env.BUILD_URL}",
                 to: "carlososoa@gmail.com",
                 from: "jenkins@est.iudigital.edu.co"
